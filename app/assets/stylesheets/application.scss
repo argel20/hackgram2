@@ -1,0 +1,71 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'posts';
+
+
+
+body.mosaic{
+    background-image: url("fondo_mosaico.jpg");
+}
+
+.nav-right {
+    float: right;
+    margin-top: 7px;
+}
+
+
+
+.contenido-timeline {
+    position: absolute;
+    top: 73px;
+    width: 83%;
+}
+
+.barra-lateral{
+	float: left;
+	height: auto;
+	width: 36%;
+	/*
+	background: red;
+*/
+
+}
+
+.contenido-post{
+	float: right;
+	height: auto;
+	width: 61%;
+}
+
+
+.seguir{
+    margin-top: 15px;
+}
+
+.pick-seguir{
+    display:inline-block;
+}
+
+
+
+.text-seguir{
+   display: inline-block;
+   margin-left: 48px;
+}
+
+.button-session {
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 75px;
+}
+
+.iteracion {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+button.btn.btn-primary.td {
+    background: #5fba7d;
+    border-color: #5fba7d;
+}

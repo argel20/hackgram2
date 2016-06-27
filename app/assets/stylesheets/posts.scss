@@ -1,0 +1,38 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.contenido-post{
+	float: right;
+	height: auto;
+	width: 61%;
+}
+
+.panel-heading.td {
+    background-image: url('insta-1.jpg');
+    height: 150px;
+    background-size: cover;
+}
+
+img.panel-profile-img {
+    max-width: 100px;
+    margin-top: 5px;
+    border-radius: 100%;
+    border: 3px solid #fff;
+}
+
+.thumbnail.tr {
+    height: 242px;
+}
+
+.panel-body.td.text-center {
+    margin-top: 43px;
+}
+
+.button-session {
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 75px;
+}

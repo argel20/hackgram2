@@ -1,0 +1,192 @@
+-# !!!
+-# %html
+-#   %head
+-#     %title HackgramFront
+-#     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+-#     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+-#     = csrf_meta_tags
+-#   %body.mosaic
+-#   .container
+-#     %header
+-#       %nav.navbar.navbar-default.navbar-hack.navbar-fixed-top
+-#         .container
+-#           %a.navbar-brand{:href => "/"}
+-#             %p logo hackgram post
+-#             / <img alt="Logo" src="/assets/logo-b48626159860e2867fb9ffd8a313db93.png">
+-#           .nav-right
+-#             %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", "data-whatever" => "@mdo", :type => "button"}
+-#               %span{:claass => "glyphicon glyphicon-edit"}>
+-#               Post
+-#             #exampleModal.modal.fade{"aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+-#               .modal-dialog{:role => "document"}
+-#                 .modal-content
+-#                   .modal-header
+-#                     %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+-#                       %span{"aria-hidden" => "true"} ×
+-#                     %h4#exampleModalLabel.modal-title New Post
+-#                   .modal-body
+-#                     %form
+-#                       .form-group
+-#                         %label{:for => "typePost"} Seleccione el tipo de post
+-#                         %select.form-control{:type => "typePost"}
+-#                           %option Snippet de Codigo
+-#                           %option Link de interes
+-#                           %option Gif
+-#                           %option Todos
+-#                       .snippet
+-#                         / inicio sippet
+-#                         .form-group
+-#                           %label.col-sm-2.control-label{:for => "languaje"} Lenguaje
+-#                           .col-sm-10
+-#                             %input#language.form-control{:placeholder => "Lenguaje", :type => "text"}
+-#                         .form-group
+-#                           %label.col-sm-2.control-label{:for => "titleSnippet"} Titulo
+-#                           .col-sm-10
+-#                             %input#titleSnippet.form-control{:placeholder => "Titulo", :type => "password"}
+-#                         .form-group
+-#                           %label.col-sm-2.control-label{:for => "comentSnippet"} Razon del snippet (max 120)
+-#                           .col-sm-10
+-#                             %textarea#comentSnippet.form-control{:maxlength => "120", :rows => "3"}
+-#                         .form-group
+-#                           .col-sm-offset-10.col-sm-10
+-#                             %button.btn.btn-default{:type => "submit"} Postear
+-#                       / cierre snippet
+-#                       .link-interes
+-#                         / inicio-link de interes
+-#                         .form-group
+-#                           %label.col-sm-2.control-label{:for => "link"} Link
+-#                           .col-sm-10
+-#                             %input#link.form-control{:placeholder => "Link", :type => "email"}
+-#                         .form-group
+-#                           %label.col-sm-2.control-label{:for => "titleLink"} Titulo
+-#                           .col-sm-10
+-#                             %input#titleLink.form-control{:placeholder => "Titulo", :type => "text"}
+-#                         .form-group
+-#                           %label.col-sm-2.control-label{:for => "url"} Descripción
+-#                           .col-sm-10
+-#                             %textarea#url.form-control{:maxlength => "120", :rows => "3"}
+-#                         .form-group
+-#                           .col-sm-offset-10.col-sm-10
+-#                             %button.btn.btn-default{:type => "submit"} Postear
+-#                       / fin-link de interes
+-#                       .form-group
+-#                         / <label for="exampleInputFile">Gift</label>
+-#                         %input#exampleInputFile{:type => "file"}
+-#                           %p.help-block Agrege imagen gift
+-#                       %button.btn.btn-default{:type => "submit"} Postear
+-#                   .modal-footer
+-#                     %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+-#             / icono cerrar sesion
+-#             .button-session
+-#             %a{"data-method" => "delete", :href => "/users/sign_out"}
+-#               %span.glyphicon.glyphicon-off
+-#     / barra lateral izquierda
+-#     .contenido-timeline
+-#       .barra-lateral
+-#         / perfil usuario
+-#         %di.row
+-#           .col-md-12
+-#             .thumbnail.tr
+-#               .panel-default.panel-profile.m-b-0
+-#                 .panel-heading.td
+-#                   .panel-body.td.text-center
+-#                     %img.panel-profile-img{:src => image_path("user8-100x100.jpg")}
+-#                     %h5.panel-title
+-#                       = current_user.name
+-#                     %p.m-b Arquitecto de sueño por siempre
+-#                     .panel-body
+-#         / sigue a nuestros hacker
+-#         .row
+-#           .col-md-12
+-#             .thumbnail
+-#               .caption
+-#                 %h4 Sigue a todos los Hacker
+-#               .seguir
+-#                 .pick-seguir
+-#                   %img.img-circle{:alt => "...", :src => image_path("nelson.jpg"), :style => "width:128px; height:128px"}
+-#                 .text-seguir
+-#                   %p Nelson Mandela
+-#                   %p
+-#                     %button.btn.btn-success{:type => "submit"} Seguir
+-#               .seguir
+-#                 .pick-seguir
+-#                   %img.img-circle{:alt => "...", :src => image_path("danielita.jpg"), :style => "width:128px; height:128px"}
+-#                 .text-seguir
+-#                   %p Danielita
+-#                   %p
+-#                     %button.btn.btn-success{:type => "submit"} Seguir
+-#               .seguir
+-#                 .pick-seguir
+-#                   %img.img-circle{:alt => "...", :src => image_path("javier.jpg"), :style => "width:128px; height:128px"}
+-#                 .text-seguir
+-#                   %p Barrabas
+-#                   %p
+-#                     %button.btn.btn-success{:type => "submit"} Seguir
+-#               .seguir
+-#                 .pick-seguir
+-#                   %img.img-circle{:alt => "...", :src => image_path("maria.jpg"), :style => "width:128px; height:128px"}
+-#                 .text-seguir
+-#                   %p Mariaaaa
+-#                   %p
+-#                     %button.btn.btn-success{:type => "submit"} Seguir
+-#               .seguir
+-#                 .pick-seguir
+-#                   %img.img-circle{:alt => "...", :src => image_path("inno.jpg"), :style => "width:128px; height:128px"}
+-#                 .text-seguir
+-#                   %p Soy Inocente
+-#                   %p
+-#                     %button.btn.btn-success{:type => "submit"} Seguir
+-#               .seguir
+-#                 .pick-seguir
+-#                   %img.img-circle{:alt => "...", :src => image_path("wii.jpg"), :style => "width:128px; height:128px"}
+-#                 .text-seguir
+-#                   %p PlayStation
+-#                   %p
+-#                     %button.btn.btn-success{:type => "submit"} Seguir
+-#               .seguir
+-#                 .pick-seguir
+-#                   %img.img-circle{:alt => "...", :src => image_path("angel.jpeg"), :style => "width:128px; height:128px"}
+-#                 .text-seguir
+-#                   %p Angel
+-#                   %p
+-#                     %button.btn.btn-success{:type => "submit"} Seguir
+-#               .seguir
+-#                 .pick-seguir
+-#                   %img.img-circle{:alt => "...", :src => image_path("pedro.jpg"), :style => "width:128px; height:128px"}
+-#                 .text-seguir
+-#                   %p El lider supremo
+-#                   %p
+-#                     %button.btn.btn-success{:type => "submit"} Seguir
+-#               .seguir
+-#                 .pick-seguir
+-#                   %img.img-circle{:alt => "...", :src => image_path("juca.jpg"), :style => "width:128px; height:128px"}
+-#                 .text-seguir
+-#                   %p Hola vale
+-#                   %p
+-#                     %button.btn.btn-success{:type => "submit"} Seguir
+-#       .contenido-post
+-#         %di.row
+-#           .col-md-12
+-#             .thumbnail
+-#               .thumbnail
+-#                 .media
+-#                   .media-left.media-middle
+-#                     %a{:href => "#"}
+-#                     %img.media-object{:alt => "...", :src => "img/user3-100x100.jpg", :style => "width:64px; height:64px"}
+-#                   .media-body
+-#                     %h4.media-heading Middle aligned media
+-#                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur itaque est quis facilis, maiores natus vitae. Perferendis impedit doloremque saepe natus quos quasi vitae, dolore sed pariatur consectetur quam minima?
+-#                 .iteracion
+-#                   %span.glyphicon.glyphicon-comment
+-#                 .iteracion
+-#                   %span.glyphicon.glyphicon-share
+-#                 .iteracion
+-#                   %span.glyphicon.glyphicon-heart
+-#
+-#
+-#
+-#
+-#
+-#
+-#
+-# = yield
