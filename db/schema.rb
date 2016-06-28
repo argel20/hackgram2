@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20160626171844) do
   create_table "posts", force: :cascade do |t|
     t.integer  "type_of"
     t.text     "content"
+    t.text     "title"
+    t.text     "code"
+    t.text     "link"
+    t.text     "language"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
