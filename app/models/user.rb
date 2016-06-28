@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   end
 
   def get_posts
-    @posts = Post.where(user_id: self.following, user_id: self.id).order(id: :desc)
+    @posts = Post.where(user_id: self.following)
+    @posts += Post.where(user_id: self.id)
+    @posts.sort.reverse
   end
 end

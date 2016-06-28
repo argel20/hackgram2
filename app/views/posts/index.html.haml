@@ -6,8 +6,7 @@
           %p logo hackgram post
           / <img alt="Logo" src="/assets/logo-b48626159860e2867fb9ffd8a313db93.png">
         .nav-right
-          %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", "data-whatever" => "@mdo", :type => "button"} Post  ​
-
+          %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", "data-whatever" => "@mdo", :type => "button"} Post
           / icono cerrar sesion
           .button-session
           %a{"data-method" => "delete", :href => "/users/sign_out"}
@@ -129,12 +128,15 @@
                   .media-left.media-middle
                     %a{:href => "#"}
                     %img.media-object{:alt => "...", :src => "assets/user3-100x100.jpg", :style => "width:64px; height:64px"}
+                    - @user2 = User.find(post.user_id)
+                    = @user2.name
                   .media-body
                     %h4.media-heading
                       = post.content
 
               .iteracion
-                %span.glyphicon.glyphicon-comment
+                %a{:href => "posts/#{post.id}"}
+                  %span.glyphicon.glyphicon-comment
               .iteracion
                 %span.glyphicon.glyphicon-share
               .iteracion
