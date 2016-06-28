@@ -19,67 +19,50 @@
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
             %span{"aria-hidden" => "true"} &times;
           %h4#exampleModalLabel.modal-title New Post
-        .modal-body
-          %form
-            .form-group
-              %label{:for => "typePost"} Seleccione el tipo de post
-              %select.form-control{:type => "typePost"}
-                %option Snippet de Codigo
-                %option Link de interes
-                %option Gif
-                %option Todos  ​
-            .snippet
-              / inicio sippet
-              .form-group
-                %label.col-sm-2.control-label{:for => "languaje"} Lenguaje
-                .col-sm-10
-                  %input#language.form-control{:placeholder => "Lenguaje", :type => "text"}
-              .form-group
-                %label.col-sm-2.control-label{:for => "titleSnippet"} Titulo
-                .col-sm-10
-                  %input#titleSnippet.form-control{:placeholder => "Titulo", :type => "password"}
-              ​
-              .form-group
-                %label.col-sm-2.control-label{:for => "comentSnippet"} Razon del snippet (max 120)
-                .col-sm-10
-                  %textarea#comentSnippet.form-control{:maxlength => "120", :rows => "3"}
-              ​
-              .form-group
-                .col-sm-offset-10.col-sm-10
-                  %button.btn.btn-default{:type => "submit"} Postear
-            / cierre snippet
-            .link-interes
-              / inicio-link de interes
-              .form-group
-                ​
-                %label.col-sm-2.control-label{:for => "link"} Link
-                .col-sm-10
-                  %input#link.form-control{:placeholder => "Link", :type => "email"}
-              .form-group
-                %label.col-sm-2.control-label{:for => "titleLink"} Titulo
-                .col-sm-10
-                  %input#titleLink.form-control{:placeholder => "Titulo", :type => "text"}
-              ​
-              .form-group
-                %label.col-sm-2.control-label{:for => "url"} Descripción
-                .col-sm-10
-                  %textarea#url.form-control{:maxlength => "120", :rows => "3"}
-              ​
-              .form-group
-                .col-sm-offset-10.col-sm-10
-                  %button.btn.btn-default{:type => "submit"} Postear
-              .form-group
-                / <label for="exampleInputFile">Gift</label>
-                %input#exampleInputFile{:type => "file"}
-                  %p.help-block Agrege imagen gift
-              %button.btn.btn-default{:type => "submit"} Postear
-          .modal-footer
-            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-            .form-group
-              / <label for="exampleInputFile">Gift</label>
-              %input#exampleInputFile{:type => "file"}
-                %p.help-block Agrege imagen gift
-            %button.btn.btn-default{:type => "submit"} Postear
+        .modal-bodygitt
+          / Nav tabs
+          %ul.nav.nav-tabs{:role => "tablist"}
+            %li{:role => "presentation"}
+              %a{"aria-controls" => "home", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#home", :role => "tab"} Snippet
+            %li.active{:role => "presentation"}
+              %a{"aria-controls" => "profile", "aria-expanded" => "true", "data-toggle" => "tab", :href => "#profile", :role => "tab"} Link
+            %li{:role => "presentation"}
+              %a{"aria-controls" => "messages", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#messages", :role => "tab"} Gif
+          / Tab panes
+          .tab-content
+            #home.tab-pane{:role => "tabpanel"}
+              .form1
+                %form
+                  .form-group
+                    %label{:for => "languaje"} Lenguaje
+                    %input#languaje.form-control{:placeholder => "Ruby, PHP, Javascrip", :type => "text"}
+                  .form-group
+                    %label{:for => "title"} Titulo
+                    %input#title.form-control{:placeholder => "Indique el titulo del snippet", :type => "text"}
+                  .form-group
+                    %label{:for => "content"} Razon del snippet
+                    %textarea#content.form-control{:maxlength => "120", :rows => "3"}
+                  %button.btn.btn-default{:type => "submit"} Submit
+            #profile.tab-pane.active{:role => "tabpanel"}
+              .form2
+                .form-group
+                  %label{:for => "link"} Link
+                  %input#link.form-control{:placeholder => "Comparte aqui el link", :type => "text"}
+                .form-group
+                  %label{:for => "title"} Titulo
+                  %input#title.form-control{:placeholder => "Dale un titulo al link", :type => "text"}
+                .form-group
+                  %label{:for => "content"} Descripción
+                  %textarea#content.form-control{:maxlength => "120", :rows => "3"}
+                %button.btn.btn-default{:type => "submit"} Submit
+            #messages.tab-pane{:role => "tabpanel"}
+              .form3
+                %form
+                  .form-group
+                    %label{:for => "content"} Agregar imagen Gif
+                    %input#exampleInputFile{:type => "file"}
+                  %button.btn.btn-default{:type => "submit"} Submit
+          
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
   .contenido-timeline
