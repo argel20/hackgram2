@@ -27,6 +27,12 @@ class PostsController < ApplicationController
     render json: @post
   end
 
+  def sign
+  end
+
+  def home
+  end
+
   private
 
   def post_params
