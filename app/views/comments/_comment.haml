@@ -1,7 +1,16 @@
-- @post.comments.each do |comment|
-  -# %p
-  -#   %strong Commenter:
-  -#   = comment.commenter
-  %p
-    %strong Comment:
-    = comment.content
+.container-fluid
+  .row
+    .col-sm-4.col-md-4
+      .thumbnail
+        .caption
+          .form-group
+            %p.form-control-static.well
+              %strong Post:
+              = @post.content
+            - @post.comments.each do |comment|
+              %p
+                %strong Commenter:
+                = current_user.name
+              %p
+                %strong Comment:
+                = comment.content

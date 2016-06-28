@@ -2,7 +2,7 @@
   %header
     %nav.navbar.navbar-default.navbar-hack.navbar-fixed-top
       .container
-        %a.navbar-brand{:href => "#/"}
+        %a.navbar-brand{:href => "#"}
           %p logo hackgram post
           / <img alt="Logo" src="/assets/logo-b48626159860e2867fb9ffd8a313db93.png">
         .nav-right
@@ -131,11 +131,9 @@
                   .media-body
                     %h4.media-heading
                       = post.content
-                      = render "comments/comment"
-                      = render "comments/form"
-
               .iteracion
-                %span.glyphicon.glyphicon-comment
+                %a{:href => "/posts/#{post.id}"}
+                  %span.glyphicon.glyphicon-comment
               .iteracion
                 %span.glyphicon.glyphicon-share
               .iteracion

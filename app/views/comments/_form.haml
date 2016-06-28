@@ -3,9 +3,7 @@
     .col-md-4
       = form_for([@post, @post.comments.build]) do |f|
         .form-group
-          = f.text_area :content,class: 'form-control', placeholder: "add comment"
-          = f.submit
-        -# .form-group
-        -#   = f.label :commenter
-        -#
-        -#   = f.text_field :commenter,class: 'form-control'
+        .col-md-12
+          %div.input-group
+            = f.text_area :content,class: 'form-control', placeholder: "add comment..."
+            = button_tag "", type: 'submit', class: "btn btn-default glyphicon glyphicon-send pull-right color"

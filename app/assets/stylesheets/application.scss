@@ -69,3 +69,10 @@ button.btn.btn-primary.td {
     background: #5fba7d;
     border-color: #5fba7d;
 }
+.color{
+  background-color: lightblue;
+  &:hover {
+    background-color: lightgreen;
+
+  }
+}
