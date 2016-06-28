@@ -30,6 +30,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def sign
+  end
+
+  def home
+  end
+
   private
 
   def post_params
