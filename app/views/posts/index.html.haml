@@ -117,7 +117,7 @@
           .panel.panel-default
             = f.text_area :content,class: 'form-control'
             .action
-              = f.submit :create_post,class: 'btn',id:'buton'
+              = f.submit :create_post,class: 'btn'
               = f.file_field :avatar
       .row
         .col-md-12
@@ -138,3 +138,4 @@
                 %span.glyphicon.glyphicon-share
               .iteracion
                 %span.glyphicon.glyphicon-heart
+              -# = post.comments

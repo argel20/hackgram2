@@ -1,3 +1,14 @@
-= render "comments/comment"
-= render "comments/form"
-%a.btn.btn-warning{:href => "/posts"} Back
+.container
+  .row
+    .col-md-offset-3
+      .row
+        .col-sm-4.col-md-4
+          .thumbnail
+            .caption
+              .form-group
+                %p.form-control-static.well
+                  %strong Post:
+                  = @post.content
+                = render "comments/comment"
+      = render "comments/form"
+      %a.btn.btn-warning{:href => "/posts"} Back

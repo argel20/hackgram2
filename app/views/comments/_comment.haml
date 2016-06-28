@@ -1,16 +1,7 @@
-.container-fluid
-  .row
-    .col-sm-4.col-md-4
-      .thumbnail
-        .caption
-          .form-group
-            %p.form-control-static.well
-              %strong Post:
-              = @post.content
-            - @post.comments.each do |comment|
-              %p
-                %strong Commenter:
-                = current_user.name
-              %p
-                %strong Comment:
-                = comment.content
+- @post.comments.each do |comment|
+  %img.img-circle{:alt => "...", :src => "../assets/user8-100x100.jpg", :style => "width:64px; height:64px"}
+  - epa = User.find_by_id(comment.user_id)
+  = epa.name.capitalize 
+  %p
+    %strong Comment:
+    = comment.content
