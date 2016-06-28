@@ -1,0 +1,7 @@
+%p
+  %strong Post:
+  = @post.content
+%h2 Comments
+= render "comments/comment"
+= render "comments/form"
+%a.btn.btn-warning{:href => "/posts"} Back

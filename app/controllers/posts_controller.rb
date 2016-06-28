@@ -5,7 +5,8 @@ class PostsController < ApplicationController
     @post = Post.new
     @posts =  Post.all
 		@list_users = User.all
-  end
+
+	end
 
   def new
     @post = Post.new

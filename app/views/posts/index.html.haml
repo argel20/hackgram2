@@ -131,6 +131,8 @@
                   .media-body
                     %h4.media-heading
                       = post.content
+                      = render "comments/comment"
+                      = render "comments/form"
 
               .iteracion
                 %span.glyphicon.glyphicon-comment
