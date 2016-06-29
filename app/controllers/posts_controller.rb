@@ -23,11 +23,8 @@ class PostsController < ApplicationController
     #Creacion de nuevos posts con el modal
     @post = Post.new(post_params)
     @user.posts.push @post
-    if @post.save
-      redirect_to :action => :show, :id => @post.id
-    else
-      render json: @post.errors, status: :unproccessable_entity
-    end
+    @post.save
+    render json: @post
   end
 
   def sign
@@ -39,7 +36,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content,:avatar, :type_of,comments_attributes: [:id, :body])
+    params.require(:post).permit(:title, :content,:avatar, :type_of, :link, :language, :title, :code)
   end
 
 
