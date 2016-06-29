@@ -32,11 +32,16 @@ class PostsController < ApplicationController
 
   def home
   end
+  def follow
+    @user = User.find_by_id(params[:userid])
+    @user.follow(params[:followid])
+    render json: 'hola'
+  end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :content,:avatar, :type_of, :link, :lenguage, :title, :code)
+    params.require(:post,:user).permit(:title, :content,:avatar, :type_of, :link, :lenguage, :title, :code, :userid, :followid)
   end
 
 

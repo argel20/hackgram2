@@ -15,3 +15,18 @@ $('#form_post').submit(function(e){
 
   });
 });
+$('.btn-follow').click(function(e) {
+  e.preventDefault();
+  var userid = $('.panel-title')[0].id;
+  var followid = this.value;
+
+    $.ajax("/follow",{
+    dataType: 'json',
+    type: 'POST',
+    data: {"userid": userid,"followid": followid},
+    success: $(this).hide(),
+
+  });
+  console.log(userid);
+  console.log(followid);
+})
