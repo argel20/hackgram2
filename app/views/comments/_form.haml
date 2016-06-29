@@ -1,7 +1,7 @@
 .container-fluid
   .row
     .col-md-4
-      = form_for([@post, @post.comments.build]) do |f|
+      = form_for([@post, @post.comments.build],html: {id: :form_comment }) do |f|
         .form-group
         .col-md-12
           %div.input-group

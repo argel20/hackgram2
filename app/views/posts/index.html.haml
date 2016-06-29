@@ -113,7 +113,7 @@
                     %button.btn.btn-success{:type => "submit"} Seguir
     .contenido-post
       .row
-        = form_for :post, :url => { :action => :create }, remote: true, html: {id: :form_post }   do |f|
+        = form_for :post, :url => { :action => :create },html: {id: :form_post }   do |f|
           .panel.panel-default
             = f.text_area :content,class: 'form-control'
             .action
