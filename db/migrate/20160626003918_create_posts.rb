@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text :title
       t.text :code
       t.text :link
-      t.text :language
+      t.text :lenguage
       t.references :user, index: true, foreign_key: true
       t.timestamps null: false
     end

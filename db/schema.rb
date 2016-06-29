@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160626171844) do
     t.text     "title"
     t.text     "code"
     t.text     "link"
-    t.text     "language"
+    t.text     "lenguage"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,0 +1,127 @@
+.container
+  %header
+    %nav.navbar.navbar-default.navbar-hack.navbar-fixed-top
+      .container
+        %a.navbar-brand{:href => "#/"}
+          %p logo hackgram post
+          / <img alt="Logo" src="/assets/logo-b48626159860e2867fb9ffd8a313db93.png">
+        .nav-right
+          %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", "data-whatever" => "@mdo", :type => "button"} Post
+          / icono cerrar sesion
+          .button-session
+          %a{"data-method" => "delete", :href => "/users/sign_out"}
+            %span.glyphicon.glyphicon-off
+  / barra lateral izquierda
+  #exampleModal.modal.fade{"aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog{:role => "document"}
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} &times;
+          %h4#exampleModalLabel.modal-title New Post
+        .modal-bodygitt
+          / Nav tabs
+          %ul.nav.nav-tabs{:role => "tablist"}
+            %li{:role => "presentation"}
+              %a{"aria-controls" => "home", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#home", :role => "tab"} Snippet
+            %li.active{:role => "presentation"}
+              %a{"aria-controls" => "profile", "aria-expanded" => "true", "data-toggle" => "tab", :href => "#profile", :role => "tab"} Link
+            %li{:role => "presentation"}
+              %a{"aria-controls" => "messages", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#messages", :role => "tab"} Gif
+          / Tab panes
+          .tab-content
+            #home.tab-pane{:role => "tabpanel"}
+              .form1
+                -# = form_for :post, :url => { :action => :create },html: {id: :form_post }   do |f|
+                -#   .panel.panel-default
+                -#     = f.label :lenguage
+                -#     = f.text_area :lenguage,class: 'form-control'
+                -#   .panel.panel-default
+                -#     = f.label :Title
+                -#     = f.text_area :title,class: 'form-control'
+                -#   .panel.panel-default
+                -#     = f.label :Razon_del_snippet
+                -#     = f.text_area :content,class: 'form-control'
+                -#   .action
+                -#     = f.submit :create_post,class: 'btn',id:'buton'
+            #profile.tab-pane.active{:role => "tabpanel"}
+              .form2
+                .form-group
+                  %label{:for => "link"} Link
+                  %input#link.form-control{:placeholder => "Comparte aqui el link", :type => "text"}
+                .form-group
+                  %label{:for => "title"} Titulo
+                  %input#title.form-control{:placeholder => "Dale un titulo al link", :type => "text"}
+                .form-group
+                  %label{:for => "content"} Descripción
+                  %textarea#content.form-control{:maxlength => "120", :rows => "3"}
+                %button.btn.btn-default{:type => "submit"} Submit
+            #messages.tab-pane{:role => "tabpanel"}
+              .form3
+                %form
+                  .form-group
+                    %label{:for => "content"} Agregar imagen Gif
+                    %input#exampleInputFile{:type => "file"}
+                  %button.btn.btn-default{:type => "submit"} Submit
+
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+  .contenido-timeline
+    .barra-lateral
+      / perfil usuario
+      .row
+        .col-md-12
+          .thumbnail.tr
+            .panel-default.panel-profile.m-b-0
+              .panel-heading.td
+                .panel-body.td.text-center
+                  %img.panel-profile-img{:src => image_path("user8-100x100.jpg")}
+                  %h5.panel-title
+                    = current_user.name
+                  %p.m-b Arquitecto de sueño por siempre
+                  .panel-body
+      / sigue a nuestros hacker
+      .row
+        .col-md-12
+          .thumbnail
+            .caption
+              %h4 Sigue a todos los Hacker
+            - @list_to_show.each do |user|
+              .seguir
+                .pick-seguir
+                  %img.img-circle{:alt => "...", :src => image_path("nelson.jpg"), :style => "width:128px; height:128px"}
+                .text-seguir
+                  %p
+                    = user.name
+                  %p
+                    %button.btn.btn-success{:type => "submit"} Seguir
+    .contenido-post
+      .row
+        = form_for :post, :url => { :action => :create },html: {id: :form_post }   do |f|
+          .panel.panel-default
+            = f.text_area :content,class: 'form-control'
+            .action
+              = f.submit :create_post,class: 'btn',id:'buton'
+              = f.file_field :avatar
+      .row#argel
+        -# .col-md-12
+        -#   - @posts.each do |post|
+        -#     .thumbnail
+        -#       .thumbnail
+        -#         .media
+        -#           .media-left.media-middle
+        -#             %a{:href => "#"}
+        -#             %img.media-object{:alt => "...", :src => "assets/user3-100x100.jpg", :style => "width:64px; height:64px"}
+        -#             - @user2 = User.find(post.user_id)
+        -#             = @user2.name
+        -#           .media-body
+        -#             %h4.media-heading
+        -#               = post.content
+
+              .iteracion
+                %a{:href => "posts/#{post.id}"}
+                  %span.glyphicon.glyphicon-comment
+              .iteracion
+                %span.glyphicon.glyphicon-share
+              .iteracion
+                %span.glyphicon.glyphicon-heart

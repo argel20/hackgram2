@@ -19,67 +19,53 @@
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
             %span{"aria-hidden" => "true"} &times;
           %h4#exampleModalLabel.modal-title New Post
-        .modal-body
-          %form
-            .form-group
-              %label{:for => "typePost"} Seleccione el tipo de post
-              %select.form-control{:type => "typePost"}
-                %option Snippet de Codigo
-                %option Link de interes
-                %option Gif
-                %option Todos  ​
-            .snippet
-              / inicio sippet
-              .form-group
-                %label.col-sm-2.control-label{:for => "languaje"} Lenguaje
-                .col-sm-10
-                  %input#language.form-control{:placeholder => "Lenguaje", :type => "text"}
-              .form-group
-                %label.col-sm-2.control-label{:for => "titleSnippet"} Titulo
-                .col-sm-10
-                  %input#titleSnippet.form-control{:placeholder => "Titulo", :type => "password"}
-              ​
-              .form-group
-                %label.col-sm-2.control-label{:for => "comentSnippet"} Razon del snippet (max 120)
-                .col-sm-10
-                  %textarea#comentSnippet.form-control{:maxlength => "120", :rows => "3"}
-              ​
-              .form-group
-                .col-sm-offset-10.col-sm-10
-                  %button.btn.btn-default{:type => "submit"} Postear
-            / cierre snippet
-            .link-interes
-              / inicio-link de interes
-              .form-group
-                ​
-                %label.col-sm-2.control-label{:for => "link"} Link
-                .col-sm-10
-                  %input#link.form-control{:placeholder => "Link", :type => "email"}
-              .form-group
-                %label.col-sm-2.control-label{:for => "titleLink"} Titulo
-                .col-sm-10
-                  %input#titleLink.form-control{:placeholder => "Titulo", :type => "text"}
-              ​
-              .form-group
-                %label.col-sm-2.control-label{:for => "url"} Descripción
-                .col-sm-10
-                  %textarea#url.form-control{:maxlength => "120", :rows => "3"}
-              ​
-              .form-group
-                .col-sm-offset-10.col-sm-10
-                  %button.btn.btn-default{:type => "submit"} Postear
-              .form-group
-                / <label for="exampleInputFile">Gift</label>
-                %input#exampleInputFile{:type => "file"}
-                  %p.help-block Agrege imagen gift
-              %button.btn.btn-default{:type => "submit"} Postear
-          .modal-footer
-            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-            .form-group
-              / <label for="exampleInputFile">Gift</label>
-              %input#exampleInputFile{:type => "file"}
-                %p.help-block Agrege imagen gift
-            %button.btn.btn-default{:type => "submit"} Postear
+        .modal-bodygitt
+          / Nav tabs
+          %ul.nav.nav-tabs{:role => "tablist"}
+            %li{:role => "presentation"}
+              %a{"aria-controls" => "home", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#home", :role => "tab"} Snippet
+            %li.active{:role => "presentation"}
+              %a{"aria-controls" => "profile", "aria-expanded" => "true", "data-toggle" => "tab", :href => "#profile", :role => "tab"} Link
+            %li{:role => "presentation"}
+              %a{"aria-controls" => "messages", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#messages", :role => "tab"} Gif
+          / Tab panes
+          .tab-content
+            #home.tab-pane{:role => "tabpanel"}
+              .form1
+                = form_for :post, :url => { :action => :create },html: {id: :form_post }   do |f|
+                  .panel.panel-default
+                  = f.label :Title
+                  = f.text_area :title,class: 'form-control'
+                  .panel.panel-default
+                    = f.label :lenguage
+                    = f.text_area :lenguage,class: 'form-control'
+                  .panel.panel-default
+                    = f.label :Razon_del_snippet
+                    = f.text_area :content,class: 'form-control'
+                  .action
+                    = f.submit :create_post,class: 'btn',id:'buton'
+            #profile.tab-pane.active{:role => "tabpanel"}
+              .form2
+                = form_for :post, :url => { :action => :create },html: {id: :form_post }   do |f|
+                  .panel.panel-default
+                    = f.label :Title
+                    = f.text_area :title,class: 'form-control'
+                  .panel.panel-default
+                    = f.label :description
+                    = f.text_area :code,class: 'form-control'
+                  .panel.panel-default
+                    = f.label :link
+                    = f.text_area :link,class: 'form-control'
+                  .action
+                    = f.submit :create_post,class: 'btn',id:'buton'
+            #messages.tab-pane{:role => "tabpanel"}
+              .form3
+                %form
+                  .form-group
+                    %label{:for => "content"} Agregar imagen Gif
+                    %input#exampleInputFile{:type => "file"}
+                  %button.btn.btn-default{:type => "submit"} Submit
+
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
   .contenido-timeline
@@ -112,14 +98,14 @@
                   %p
                     %button.btn.btn-success{:type => "submit"} Seguir
     .contenido-post
-      .row
-        = form_for :post, :url => { :action => :create },html: {id: :form_post }   do |f|
-          .panel.panel-default
-            = f.text_area :content,class: 'form-control'
-            .action
-              = f.submit :create_post,class: 'btn',id:'buton'
-              = f.file_field :avatar
-      .row.argel
+      .row#argel
+        -# = form_for :post, :url => { :action => :create },html: {id: :form_post }   do |f|
+        -#   .panel.panel-default
+        -#     = f.text_area :content,class: 'form-control'
+        -#     .action
+        -#       = f.submit :create_post,class: 'btn',id:'buton'
+        -#       = f.file_field :avatar
+      .row#argel
         .col-md-12
           - @posts.each do |post|
             .thumbnail
@@ -132,7 +118,17 @@
                     = @user2.name
                   .media-body
                     %h4.media-heading
+                      = post.title
+                    %h4.media-heading
+                      = post.lenguage
+                    %h4.media-heading
                       = post.content
+                    %h4.media-heading
+                      = post.code
+                    %h4.media-heading
+                      = post.link
+
+
 
               .iteracion
                 %a{:href => "posts/#{post.id}"}
