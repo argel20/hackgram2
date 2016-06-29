@@ -60,12 +60,10 @@
                     = f.submit :create_post,class: 'btn',id:'buton'
             #messages.tab-pane{:role => "tabpanel"}
               .form3
-                %form
-                  .form-group
-                    %label{:for => "content"} Agregar imagen Gif
-                    %input#exampleInputFile{:type => "file"}
-                  %button.btn.btn-default{:type => "submit"} Submit
-
+                = form_for :post, :url => { :action => :create },html: {id: :form_post }   do |f|
+                  = f.label :Insert_gif
+                  = f.file_field :avatar
+                  = f.submit :create_post,class: 'btn',id:'buton'
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
   .contenido-timeline
@@ -98,7 +96,7 @@
                   %p
                     %button.btn.btn-success{:type => "submit"} Seguir
     .contenido-post
-      .row#argel
+      .row#post
         -# = form_for :post, :url => { :action => :create },html: {id: :form_post }   do |f|
         -#   .panel.panel-default
         -#     = f.text_area :content,class: 'form-control'
@@ -127,6 +125,8 @@
                       = post.code
                     %h4.media-heading
                       = post.link
+                    %h4.media-heading
+                      =image_tag("#{post.link}")
 
 
 
