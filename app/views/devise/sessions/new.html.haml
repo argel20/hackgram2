@@ -1,22 +1,52 @@
 .container
-  .row
-    .col-md-4.col-md-offset-4
-      %h2 Log in
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-
-        .form-group
-          = f.label :email,class:"navletracolor"
-
-          = f.email_field :email, autofocus: true,class: 'form-control'
-        .form-group
-          = f.label :password,class:"navletracolor"
-
-          = f.password_field :password, autocomplete: "off",class: 'form-control'
-        - if devise_mapping.rememberable?
-          .form-group
-            = f.check_box :remember_me
-            = f.label :remember_me,class:"navletracolor"
-        .actions
-          = f.submit "Log in" ,class: 'btn  btn-success wellcolor'
-        .form-group
-          = render "devise/shared/links"
+  .row.text-center
+    .col-md-5.col-md-offset-1
+      .sign
+        %h2 Sign up
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field
+            = f.label :name
+            %br/
+            = f.text_field :name, autofocus: true
+          .field
+            = f.label :lastname
+            %br/
+            = f.text_field :lastname
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email
+          .field
+            = f.label :password
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} characters minimum)
+            %br/
+            = f.password_field :password, autocomplete: "off"
+          .field
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "off"
+          .actions
+            = f.submit "Sign up"
+        = render "devise/shared/links"
+    .col-md-5
+      .login
+        %h2 Log in
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true
+          .field
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "off"
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .actions
+            = f.submit "Log in"
+        = render "devise/shared/links"
